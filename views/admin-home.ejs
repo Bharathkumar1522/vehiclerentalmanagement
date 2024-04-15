@@ -1,0 +1,918 @@
+<%-include("partials/admin-header.ejs")%>
+
+<section class="section featured-car" id="featured-car">
+    <div class="container">
+      <div class="title-wrapper-2 wrapper">
+        <a href="#demo-modal"><button class="btn-bk" style="margin-right: 1rem;">Add Vehicle</button></a>
+      </div>
+    
+    <div id="demo-modal" class="modal">
+        <div class="modal__content">
+            <h1 style="color: azure;">Add Vehicle</h1>
+            <form class="grid-cols-1 grid md:grid-cols-3">
+                <div class="md:col-span-3 grid-cols-1 sm:grid-cols-2 grid">
+                  <div>
+                    <label for="" class="form-label">Upload vehicle image</label>
+                    <input type="file" id="" placeholder="Vehicle image" class="form-input" accept="image/*">
+                  </div>
+                  <div>
+                    <label for="" class="form-label">Vehicle Name</label>
+                    <input type="text" id="" placeholder="Vehicle name" class="form-input">
+                  </div>
+                  <div>
+                    <label for="" class="form-label">launch date</label>
+                    <input type="number" id="" placeholder="launch date" class="form-input">
+                  </div>
+                  <div>
+                    <label for="" class="form-label">Price per day</label>
+                    <input type="number" id="" placeholder="prince" class="form-input">
+                  </div>
+                  <div>
+                    <label for="" class="form-label">Seating capacity</label>
+                    <input type="number" id="" placeholder="seating" class="form-input">
+                  </div>
+                  <div>
+                    <label for="" class="form-label">Milage Per Litre*</label>
+                    <input type="number" id="" placeholder="Milage Km" class="form-input">
+                  </div>
+                </div>
+                <div>
+                    <label for="carType" class="form-label">Transmition Type</label>
+                    <select id="carType" class="form-input">
+                      <option style="color: black;">Transmition type</option>
+                      <option style="color: black;">Manual</option>
+                      <option style="color: black;">Automatic</option>
+                      <option style="color: black;">N/A</option>
+                    </select>
+                  </div>
+                <div>
+                    <label for="carType" class="form-label">Vehicle type</label>
+                    <select id="carType" class="form-input">
+                      <option style="color: black;">Vehicle type</option>
+                      <option style="color: black;">Gasoline</option>
+                      <option style="color: black;">Electric</option>
+                      <option style="color: black;">Hybrid</option>
+                    </select>
+                </div>
+                <div class="md:col-span-3">
+                    <button type="submit" class="btn-bk">Add</button>
+                  </div>
+              </form>
+            <a href="#" class="modal__close">&times;</a>
+        </div>
+    </div>
+
+
+
+
+      <ul class="featured-car-list">
+        <li>
+          <div class="featured-car-card">
+
+            <figure class="card-banner">
+              <img src="/images/car-1.jpg" alt="Toyota RAV4 2021" loading="lazy" width="440" height="300"
+                class="w-100">
+            </figure>
+
+            <div class="card-content">
+
+              <div class="card-title-wrapper">
+                <h3 class="h3 card-title">
+                  <a href="#">Toyota RAV4</a>
+                </h3>
+
+                <data class="year" value="2021">2021</data>
+              </div>
+
+              <ul class="card-list">
+
+                <li class="card-list-item">
+                  <ion-icon name="people-outline"></ion-icon>
+
+                  <span class="card-item-text">4 People</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="flash-outline"></ion-icon>
+
+                  <span class="card-item-text">Hybrid</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="speedometer-outline"></ion-icon>
+
+                  <span class="card-item-text">6.1km / 1-litre</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                  <span class="card-item-text">Automatic</span>
+                </li>
+
+              </ul>
+
+              <div class="card-price-wrapper">
+                <p class="card-price">
+                  <strong>5000</strong> / day
+                </p>     
+                <div style="display: flex;">
+                    <div class="md:col-span-3">
+                        <button type="submit" class="remove-btn-admin">Remove</button>
+                    </div>
+                </div>  
+              </div>
+            
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="featured-car-card">
+
+            <figure class="card-banner">
+              <img src="/images/bike_3.jpeg" alt="TVS Ntorq 125 2020" loading="lazy" width="440"
+                height="300" class="w-100">
+            </figure>
+
+            <div class="card-content">
+
+              <div class="card-title-wrapper">
+                <h3 class="h3 card-title">
+                  <a href="#">TVS Ntorq 125</a>
+                </h3>
+
+                <data class="year" value="2020">2020</data>
+              </div>
+
+              <ul class="card-list">
+
+                <li class="card-list-item">
+                  <ion-icon name="people-outline"></ion-icon>
+
+                  <span class="card-item-text">2 People</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="flash-outline"></ion-icon>
+
+                  <span class="card-item-text">Gasoline</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="speedometer-outline"></ion-icon>
+
+                  <span class="card-item-text">54.33km / 1-litre</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                  <span class="card-item-text">N/A</span>
+                </li>
+
+              </ul>
+
+              <div class="card-price-wrapper">
+
+                <p class="card-price">
+                  <strong>1000</strong> / day
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+        </li>
+        
+        <li>
+          <div class="featured-car-card">
+
+            <figure class="card-banner">
+              <img src="/images/car-2.jpg" alt="BMW 3 Series 2019" loading="lazy" width="440" height="300"
+                class="w-100">
+            </figure>
+
+            <div class="card-content">
+
+              <div class="card-title-wrapper">
+                <h3 class="h3 card-title">
+                  <a href="#">BMW 3 Series</a>
+                </h3>
+
+                <data class="year" value="2019">2019</data>
+              </div>
+
+              <ul class="card-list">
+
+                <li class="card-list-item">
+                  <ion-icon name="people-outline"></ion-icon>
+
+                  <span class="card-item-text">4 People</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="flash-outline"></ion-icon>
+
+                  <span class="card-item-text">Gasoline</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="speedometer-outline"></ion-icon>
+
+                  <span class="card-item-text">8.2km / 1-litre</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                  <span class="card-item-text">Automatic</span>
+                </li>
+
+              </ul>
+
+              <div class="card-price-wrapper">
+
+                <p class="card-price">
+                  <strong>6000</strong> / day
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="featured-car-card">
+
+            <figure class="card-banner">
+              <img src="/images/car-3.jpg" alt="Volkswagen T-Cross 2020" loading="lazy" width="440"
+                height="300" class="w-100">
+            </figure>
+
+            <div class="card-content">
+
+              <div class="card-title-wrapper">
+                <h3 class="h3 card-title">
+                  <a href="#">Volkswagen T-Cross</a>
+                </h3>
+
+                <data class="year" value="2020">2020</data>
+              </div>
+
+              <ul class="card-list">
+
+                <li class="card-list-item">
+                  <ion-icon name="people-outline"></ion-icon>
+
+                  <span class="card-item-text">4 People</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="flash-outline"></ion-icon>
+
+                  <span class="card-item-text">Gasoline</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="speedometer-outline"></ion-icon>
+
+                  <span class="card-item-text">5.3km / 1-litre</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                  <span class="card-item-text">Automatic</span>
+                </li>
+
+              </ul>
+
+              <div class="card-price-wrapper">
+
+                <p class="card-price">
+                  <strong>5000</strong> / day
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="featured-car-card">
+
+            <figure class="card-banner">
+              <img src="/images/bike_2.jpeg" alt="royal enfield hunter 350 2022" loading="lazy" width="440"
+                height="300" class="w-100">
+            </figure>
+
+            <div class="card-content">
+
+              <div class="card-title-wrapper">
+                <h3 class="h3 card-title">
+                  <a href="#">Royal enfield hunter 350</a>
+                </h3>
+
+                <data class="year" value="2020">2022</data>
+              </div>
+
+              <ul class="card-list">
+
+                <li class="card-list-item">
+                  <ion-icon name="people-outline"></ion-icon>
+
+                  <span class="card-item-text">2 People</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="flash-outline"></ion-icon>
+
+                  <span class="card-item-text">Gasoline</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="speedometer-outline"></ion-icon>
+
+                  <span class="card-item-text">36.2km / 1-litre</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                  <span class="card-item-text">Manual</span>
+                </li>
+
+              </ul>
+
+              <div class="card-price-wrapper">
+
+                <p class="card-price">
+                  <strong>2000</strong> / day
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="featured-car-card">
+
+            <figure class="card-banner">
+              <img src="/images/car-4.jpg" alt="Cadillac Escalade 2020" loading="lazy" width="440"
+                height="300" class="w-100">
+            </figure>
+
+            <div class="card-content">
+
+              <div class="card-title-wrapper">
+                <h3 class="h3 card-title">
+                  <a href="#">Cadillac Escalade</a>
+                </h3>
+
+                <data class="year" value="2020">2020</data>
+              </div>
+
+              <ul class="card-list">
+
+                <li class="card-list-item">
+                  <ion-icon name="people-outline"></ion-icon>
+
+                  <span class="card-item-text">4 People</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="flash-outline"></ion-icon>
+
+                  <span class="card-item-text">Gasoline</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="speedometer-outline"></ion-icon>
+
+                  <span class="card-item-text">7.7km / 1-litre</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                  <span class="card-item-text">Automatic</span>
+                </li>
+
+              </ul>
+
+              <div class="card-price-wrapper">
+
+                <p class="card-price">
+                  <strong>8000</strong> / day
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+        </li>
+
+
+        <li>
+          <div class="featured-car-card">
+
+            <figure class="card-banner">
+              <img src="/images/bike_1.jpeg" alt="Harley-Davidson X440 2023" loading="lazy" width="440"
+                height="300" class="w-100">
+            </figure>
+
+            <div class="card-content">
+
+              <div class="card-title-wrapper">
+                <h3 class="h3 card-title">
+                  <a href="#">Harley-Davidson X440</a>
+                </h3>
+
+                <data class="year" value="2021">2023</data>
+              </div>
+
+              <ul class="card-list">
+
+                <li class="card-list-item">
+                  <ion-icon name="people-outline"></ion-icon>
+
+                  <span class="card-item-text">2 People</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="flash-outline"></ion-icon>
+
+                  <span class="card-item-text">Gasoline</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="speedometer-outline"></ion-icon>
+
+                  <span class="card-item-text">33km / 1-litre</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                  <span class="card-item-text">Manual</span>
+                </li>
+
+              </ul>
+
+              <div class="card-price-wrapper">
+
+                <p class="card-price">
+                  <strong>3000</strong> / day
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="featured-car-card">
+
+            <figure class="card-banner">
+              <img src="/images/car-5.jpg" alt="BMW 4 Series GTI 2021" loading="lazy" width="440"
+                height="300" class="w-100">
+            </figure>
+
+            <div class="card-content">
+
+              <div class="card-title-wrapper">
+                <h3 class="h3 card-title">
+                  <a href="#">BMW 4 Series GTI</a>
+                </h3>
+
+                <data class="year" value="2021">2021</data>
+              </div>
+
+              <ul class="card-list">
+
+                <li class="card-list-item">
+                  <ion-icon name="people-outline"></ion-icon>
+
+                  <span class="card-item-text">4 People</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="flash-outline"></ion-icon>
+
+                  <span class="card-item-text">Gasoline</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="speedometer-outline"></ion-icon>
+
+                  <span class="card-item-text">7.6km / 1-litre</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                  <span class="card-item-text">Automatic</span>
+                </li>
+
+              </ul>
+
+              <div class="card-price-wrapper">
+
+                <p class="card-price">
+                  <strong>5000</strong> / day
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="featured-car-card">
+
+            <figure class="card-banner">
+              <img src="/images/car-6.jpg" alt="BMW 4 Series 2019" loading="lazy" width="440" height="300"
+                class="w-100">
+            </figure>
+
+            <div class="card-content">
+
+              <div class="card-title-wrapper">
+                <h3 class="h3 card-title">
+                  <a href="#">BMW 4 Series</a>
+                </h3>
+
+                <data class="year" value="2019">2019</data>
+              </div>
+
+              <ul class="card-list">
+
+                <li class="card-list-item">
+                  <ion-icon name="people-outline"></ion-icon>
+
+                  <span class="card-item-text">4 People</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="flash-outline"></ion-icon>
+
+                  <span class="card-item-text">Gasoline</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="speedometer-outline"></ion-icon>
+
+                  <span class="card-item-text">7.2km / 1-litre</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                  <span class="card-item-text">Automatic</span>
+                </li>
+
+              </ul>
+
+              <div class="card-price-wrapper">
+
+                <p class="card-price">
+                  <strong>6000</strong> / day
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="featured-car-card">
+
+            <figure class="card-banner">
+              <img src="/images/bike_4.jpeg" alt="Triumph Speed 400 2023" loading="lazy" width="440"
+                height="300" class="w-100">
+            </figure>
+
+            <div class="card-content">
+
+              <div class="card-title-wrapper">
+                <h3 class="h3 card-title">
+                  <a href="#">Triumph Speed 400</a>
+                </h3>
+
+                <data class="year" value="2020">2023</data>
+              </div>
+
+              <ul class="card-list">
+
+                <li class="card-list-item">
+                  <ion-icon name="people-outline"></ion-icon>
+
+                  <span class="card-item-text">2 People</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="flash-outline"></ion-icon>
+
+                  <span class="card-item-text">Gasoline</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="speedometer-outline"></ion-icon>
+
+                  <span class="card-item-text">29.8km / 1-litre</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                  <span class="card-item-text">Manual</span>
+                </li>
+
+              </ul>
+
+              <div class="card-price-wrapper">
+
+                <p class="card-price">
+                  <strong>2000</strong> / day
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="featured-car-card">
+
+            <figure class="card-banner">
+              <img src="/images/car-7.jpg" alt="BMW i4 electric sedan 2022" loading="lazy" width="440"
+                height="300" class="w-100">
+            </figure>
+
+            <div class="card-content">
+
+              <div class="card-title-wrapper">
+                <h3 class="h3 card-title">
+                  <a href="#">BMW i4 electric sedan</a>
+                </h3>
+
+                <data class="year" value="2021">2022</data>
+              </div>
+
+              <ul class="card-list">
+
+                <li class="card-list-item">
+                  <ion-icon name="people-outline"></ion-icon>
+
+                  <span class="card-item-text">4 People</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="flash-outline"></ion-icon>
+
+                  <span class="card-item-text">Electric</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="speedometer-outline"></ion-icon>
+
+                  <span class="card-item-text">483km/Fullchrg</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                  <span class="card-item-text">Automatic</span>
+                </li>
+
+              </ul>
+
+              <div class="card-price-wrapper">
+
+                <p class="card-price">
+                  <strong>8000</strong> / day
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+
+
+
+
+  
+
+<section class="section featured-car" id="featured-car">
+   
+    <div class="container">
+        <h1 style="margin-bottom: 20px;">Removed Vehicles</h1>
+      <ul class="featured-car-list">
+        <li>
+          <div class="featured-car-card">
+
+            <figure class="card-banner">
+              <img src="/images/car-6.jpg" alt="BMW 4 Series 2019" loading="lazy" width="440" height="300"
+                class="w-100">
+            </figure>
+
+            <div class="card-content">
+
+              <div class="card-title-wrapper">
+                <h3 class="h3 card-title">
+                  <a href="#">BMW 4 Series</a>
+                </h3>
+
+                <data class="year" value="2019">2019</data>
+              </div>
+
+              <ul class="card-list">
+
+                <li class="card-list-item">
+                  <ion-icon name="people-outline"></ion-icon>
+
+                  <span class="card-item-text">4 People</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="flash-outline"></ion-icon>
+
+                  <span class="card-item-text">Gasoline</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="speedometer-outline"></ion-icon>
+
+                  <span class="card-item-text">7.2km / 1-litre</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                  <span class="card-item-text">Automatic</span>
+                </li>
+
+              </ul>
+
+              <div class="card-price-wrapper">
+
+                <p class="card-price">
+                  <strong>6000</strong> / day
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="featured-car-card">
+
+            <figure class="card-banner">
+              <img src="/images/bike_4.jpeg" alt="Triumph Speed 400 2023" loading="lazy" width="440"
+                height="300" class="w-100">
+            </figure>
+
+            <div class="card-content">
+
+              <div class="card-title-wrapper">
+                <h3 class="h3 card-title">
+                  <a href="#">Triumph Speed 400</a>
+                </h3>
+
+                <data class="year" value="2020">2023</data>
+              </div>
+
+              <ul class="card-list">
+
+                <li class="card-list-item">
+                  <ion-icon name="people-outline"></ion-icon>
+
+                  <span class="card-item-text">2 People</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="flash-outline"></ion-icon>
+
+                  <span class="card-item-text">Gasoline</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="speedometer-outline"></ion-icon>
+
+                  <span class="card-item-text">29.8km / 1-litre</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                  <span class="card-item-text">Manual</span>
+                </li>
+
+              </ul>
+
+              <div class="card-price-wrapper">
+
+                <p class="card-price">
+                  <strong>2000</strong> / day
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="featured-car-card">
+
+            <figure class="card-banner">
+              <img src="/images/car-7.jpg" alt="BMW i4 electric sedan 2022" loading="lazy" width="440"
+                height="300" class="w-100">
+            </figure>
+
+            <div class="card-content">
+
+              <div class="card-title-wrapper">
+                <h3 class="h3 card-title">
+                  <a href="#">BMW i4 electric sedan</a>
+                </h3>
+
+                <data class="year" value="2021">2022</data>
+              </div>
+
+              <ul class="card-list">
+
+                <li class="card-list-item">
+                  <ion-icon name="people-outline"></ion-icon>
+
+                  <span class="card-item-text">4 People</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="flash-outline"></ion-icon>
+
+                  <span class="card-item-text">Electric</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="speedometer-outline"></ion-icon>
+
+                  <span class="card-item-text">483km/Fullchrg</span>
+                </li>
+
+                <li class="card-list-item">
+                  <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                  <span class="card-item-text">Automatic</span>
+                </li>
+
+              </ul>
+
+              <div class="card-price-wrapper">
+
+                <p class="card-price">
+                  <strong>8000</strong> / day
+                </p>
+                <div class="md:col-span-3" style="margin-right: 1rem;">
+                    <button type="submit" class="add-btn-admin">add</button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+ 
+
+<%-include("partials/admin-footer.ejs")%>

@@ -1,0 +1,44 @@
+<%-include("partials/header.ejs")%>
+
+
+<div class="booking-bg-img">
+    <div class="login-image-wrap">
+        <div class="login-wrap">
+            <div class="login-html">
+                <h1 style="color: cornsilk;font-size: 3rem;">Book a Vehicle</h1>
+                          <form class="grid-cols-1 grid md:grid-cols-3">
+                            <div>
+                              <label for="carType" class="form-label">Select Your Vehicle*</label>
+                              <select id="carType" class="form-input">
+                                <option >Select your Vehicle</option>
+                                <option style="color: black;">Toyota RAV4</option>
+                                <option style="color: black;">TVS Ntorq 125</option>
+                              </select>
+                            </div>
+                            <div class="md:col-span-3 grid-cols-1 sm:grid-cols-2 grid">
+                              <div>
+                                <label for="pickupDate" class="form-label">From Date *</label>
+                                <input type="date" id="pickupDate" placeholder="dd - mm - yyyy" class="form-input">
+                              </div>
+                              <div>
+                                <label for="dropoffDate" class="form-label">To Date *</label>
+                                <input type="date" id="dropoffDate" placeholder="dd - mm - yyyy" class="form-input">
+                              </div>
+                            </div>
+                            <div class="md:col-span-3">
+                              <button type="submit" class="btn-bk">Book Now</button>
+                            </div>
+                          </form>
+
+        </div>
+    </div>
+</div>
+
+    
+
+    
+</body>
+</html>
+
+
+
