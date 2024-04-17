@@ -17,10 +17,18 @@
             <p class="hero-text">
       
             </p>
-            <div style="display: flex;">
-              <a href="bookingpage"><button class="btn-bk" style="margin-right: 1rem;">BOOK NOW</button></a>
-              <a href="hiring"><button class="btn-bk-2">HIRE NOW</button></a>
-            </div>
+            <% if(locals.isLoggedIn && isLoggedIn === true){ %>  
+              <div style="display: flex;">
+                <a href="bookingpage"><button class="btn-bk" style="margin-right: 1rem;">BOOK NOW</button></a>
+                <a href="hiring"><button class="btn-bk-2">HIRE NOW</button></a>
+              </div>
+            <% }else{ %>
+              <div style="display: flex;">
+                <a href="login"><button class="btn-bk" style="margin-right: 1rem;">BOOK NOW</button></a>
+                <a href="login"><button class="btn-bk-2">HIRE NOW</button></a>
+              </div>
+            <% } %>  
+            
             
             
           </div>

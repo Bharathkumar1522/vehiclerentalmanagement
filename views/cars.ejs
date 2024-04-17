@@ -3,10 +3,17 @@
 
 <section class="section featured-car" id="featured-car">
     <div class="container">
+      <% if(locals.isLoggedIn && isLoggedIn === true){ %>  
+        <div class="title-wrapper-2">
+          <a href="bookingpage"><button class="btn-bk" style="margin-right: 1rem;">BOOK NOW</button></a>
+        </div>
+      <% }else{ %>
+        <div class="title-wrapper-2">
+          <a href="login"><button class="btn-bk" style="margin-right: 1rem;">BOOK NOW</button></a>
+        </div>
+      <% } %>   
+      
 
-      <div class="title-wrapper-2">
-        <a href="bookingpage"><button class="btn-bk" style="margin-right: 1rem;">BOOK NOW</button></a>
-      </div>
       <ul class="featured-car-list">
         <li>
           <div class="featured-car-card">

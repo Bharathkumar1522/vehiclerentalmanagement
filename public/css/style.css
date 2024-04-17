@@ -1712,3 +1712,14 @@ button, a { transition: var(--transition); }
   font-weight: var(--fw-600);
   overflow: hidden;
 }
+.message-container{
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #0000007e;
+  border-radius: 7px;
+  margin: 0.3rem 0;
+}
+.message-container p{
+  color: #fff;
+  font-size: 1.2rem;
+}

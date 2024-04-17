@@ -56,19 +56,21 @@
           <li>
             <a href="driverbooking" class="navbar-link" data-nav-link>Hire Drivers</a>
           </li>
-
-          <li>
-            <a href="history" class="navbar-link" data-nav-link>Bookings and History</a>
-          </li>
-          <li>
-            <a href="/login" class="navbar-link" data-nav-link>Logout</a>
-          </li>
-          <!-- <li>
-            <a href="" class="navbar-link" data-nav-link>Sign in</a>
-          </li>
-          <li>
-            <a href="" class="navbar-link" data-nav-link>Sign up</a>
-          </li> -->
+          <% if(locals.isLoggedIn && isLoggedIn === true){ %>
+            <li>
+              <a href="history" class="navbar-link" data-nav-link>Bookings and History</a>
+            </li>
+            <li>
+              <a href="/logout" class="navbar-link" data-nav-link>Logout</a>
+            </li>
+          <% }else{ %>
+            <li>
+              <a href="/login" class="navbar-link" data-nav-link>Sign in</a>
+            </li>
+            <li>
+              <a href="/login" class="navbar-link" data-nav-link>Sign up</a>
+            </li>
+          <% } %>
         </ul>
       </nav>
 
