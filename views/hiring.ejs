@@ -1,42 +1,123 @@
 <%-include("partials/header.ejs")%>
 
-
 <div class="hiring-bg-img">
-    <div class="login-image-wrap">
-        <div class="login-wrap">
-            <div class="login-html">
-                <h1 style="color: cornsilk;font-size: 3rem;">Hire a Driver</h1>
-                          <form class="grid-cols-1 grid md:grid-cols-3">
-                            <div>
-                              <label for="carType" class="form-label">Select Your Driver*</label>
-                              <select id="carType" class="form-input">
-                                <option>Select your Driver</option>
-                              </select>
-                            </div>
-                            <div class="md:col-span-3 grid-cols-1 sm:grid-cols-2 grid">
-                              <div>
-                                <label for="pickupDate" class="form-label">From*</label>
-                                <input type="date" id="pickupDate" placeholder="dd - mm - yyyy" class="form-input" style="color:white;">
-                              </div>
-                              <div>
-                                <label for="dropoffDate" class="form-label">To *</label>
-                                <input type="date" id="dropoffDate" placeholder="dd - mm - yyyy" class="form-input" style="color:white;">
-                              </div>
-                            </div>
-                            <div class="md:col-span-3">
-                              <button type="submit" class="btn-bk">Book Now</button>
-                            </div>
-                          </form>
-
-        </div>
+  <div class="login-image-wrap">
+    <div class="login-wrap">
+      <div class="login-html">
+        <h1 style="color: cornsilk;font-size: 3rem;">Hire a Driver</h1>
+        <% if(locals.drivers && drivers != -1){ %>
+          <form action="/hiredriver" method="POST" class="grid-cols-1 grid md:grid-cols-3">
+            <div>
+              <label for="driver" class="form-label">Select Your Driver</label>
+              <select id="driver" class="form-input" name="selected_driver">
+                <% drivers.forEach((driver) => { %>
+                  <option style="color: black;" value="<%= driver.driver_id %>$<%= driver.price_per_day %>">D<%= driver.driver_id %> (per day: <%= driver.price_per_day %>)</option>
+                <% }); %>
+              </select>
+              <a class="explore-link" href="/drivers">view drivers</a>
+            </div>
+            <div class="md:col-span-3 grid-cols-1 sm:grid-cols-2 grid">
+              <div class="reservation-box">
+                <div class="input-container" id="date-picker-container">
+                  <label for="date-from">from</label>
+                  <input type="date" id="date-checkin" class="date-field" name="date_from" required="">
+                </div>
+                <div class="input-container" id="date-picker-container">
+                  <label for="date-from">to</label>
+                  <input type="date" id="date-checkout" class="date-field" name="date_to" required="">                             
+                </div>
+              </div>
+              <div class="md:col-span-3">
+                <button type="submit" class="btn-bk">Hire Now</button>
+              </div>
+            </div>
+          </form>
+        <% }else{ %>
+          <div class="message-container">
+            <p>No drivers are available at the moment.<a href="/" class="explore-link" style="text-align: center;">Click here</a>to go to home</p>
+          </div>
+        <% } %>
+        <!-- <h1 style="color: cornsilk;font-size: 3rem;">Hire a Driver</h1>
+        <form class="grid-cols-1 grid md:grid-cols-3">
+          <div>
+            <label for="carType" class="form-label">Select Your Driver*</label>
+            <select id="carType" class="form-input">
+              <option>Select your Driver</option>
+            </select>
+          </div>
+          <div class="md:col-span-3 grid-cols-1 sm:grid-cols-2 grid">
+            <div>
+              <label for="pickupDate" class="form-label">From*</label>
+              <input type="date" id="pickupDate" placeholder="dd - mm - yyyy" class="form-input" style="color:white;">
+            </div>
+            <div>
+              <label for="dropoffDate" class="form-label">To *</label>
+              <input type="date" id="dropoffDate" placeholder="dd - mm - yyyy" class="form-input" style="color:white;">
+            </div>
+          </div>
+          <div class="md:col-span-3">
+            <button type="submit" class="btn-bk">Book Now</button>
+          </div>
+        </form> -->
+      </div>
     </div>
-</div>
+  </div>
 
     
+  <script>
+    const today = new Date(); 
+    const tomorrow = new Date(today); 
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const dateCheckin = document.getElementById("date-checkin");
+    const dateCheckout = document.getElementById("date-checkout");
+    dateCheckin.setAttribute('min', tomorrow);
+    dateCheckout.setAttribute('min', tomorrow);
+    
+    const dateContainers = document.querySelectorAll('.input-container');
+    dateContainers.forEach(dateContainer => {
+      const dateInput = dateContainer.querySelector('.date-field');
+      if (dateInput) {
+        dateContainer.addEventListener('click', function (event) {
+          dateInput.select();
+        });
+      }
+    });
 
+    document.addEventListener("DOMContentLoaded", function () {
+      const dateCheckin = document.getElementById("date-checkin");
+      const dateCheckout = document.getElementById("date-checkout");
+      const today = new Date(); 
+      const tomorrow = new Date(today); 
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      var dd = String(tomorrow.getDate()).padStart(2, '0');
+      var mm = String(tomorrow.getMonth() + 1).padStart(2, '0'); 
+      var yyyy = tomorrow.getFullYear();
+      var tomorrowDate = yyyy + '-' + mm + '-' + dd;
+      console.log(tomorrowDate);
+      dateCheckin.setAttribute('min', tomorrowDate);
+      dateCheckout.setAttribute('min', tomorrowDate);
+      dateCheckin.valueAsDate = tomorrow;
+      dateCheckout.valueAsDate = tomorrow;
+      dateCheckin.addEventListener("input", function () {
+        const checkinDate = dateCheckin.valueAsDate;
+        const checkoutDate = dateCheckout.valueAsDate;
+        if (checkinDate > checkoutDate) {
+          const newCheckoutDate = new Date(checkinDate);
+          newCheckoutDate.setDate(newCheckoutDate.getDate() + 1);
+          dateCheckout.valueAsDate = newCheckoutDate;
+        }
+      });
+      dateCheckout.addEventListener("input", function () {
+        const checkinDate = dateCheckin.valueAsDate;
+        const checkoutDate = dateCheckout.valueAsDate;
+        if (checkoutDate < checkinDate) {
+          const newCheckinDate = new Date(checkoutDate);
+          newCheckinDate.setDate(newCheckinDate.getDate() - 1);
+          dateCheckin.valueAsDate = newCheckinDate;
+        }
+      });
+    });
+  </script>
     
 </body>
 </html>
-
-
-

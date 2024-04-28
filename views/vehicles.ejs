@@ -1,0 +1,74 @@
+
+<%-include("partials/header.ejs")%>
+
+<section class="section featured-car" id="featured-car">
+    <div class="container">
+      <% if(locals.isLoggedIn && isLoggedIn === true){ %>  
+        <div class="title-wrapper-2">
+          <a href="bookingpage"><button class="btn-bk" style="margin-right: 1rem;">BOOK NOW</button></a>
+        </div>
+      <% }else{ %>
+        <div class="title-wrapper-2">
+          <a href="login"><button class="btn-bk" style="margin-right: 1rem;">BOOK NOW</button></a>
+        </div>
+      <% } %>   
+      
+
+      <ul class="featured-car-list">
+        
+      <% if(locals.errorMessage){ %>
+        <div class="message-container-2">
+          <p><%= errorMessage %></p>
+        </div>
+      <% }else{ %>
+          <% if(locals.vehicles && vehicles != -1){ %>
+            <% vehicles.forEach((vehicle) => { %>
+                <li>
+                  <div class="featured-car-card">
+                    <figure class="card-banner">
+                      <img src= "<%= vehicle.vehicle_image_path %>" alt="Toyota RAV4 2021" loading="lazy" width="440" height="300" class="w-100">
+                    </figure>
+                    <div class="card-content">
+                      <div class="card-title-wrapper">
+                        <h3 class="h3 card-title">
+                          <a href="#"><%= vehicle.vehicle_model %></a>
+                        </h3>
+                        <data class="year"><%= vehicle.launched_year %></data>
+                      </div>
+                      <ul class="card-list">
+                        <li class="card-list-item">
+                          <ion-icon name="people-outline"></ion-icon>
+                          <span class="card-item-text"><%= vehicle.seating_capacity %> People</span>
+                        </li>
+                        <li class="card-list-item">
+                          <ion-icon name="flash-outline"></ion-icon>
+                          <span class="card-item-text"><%= vehicle.vehicle_type %></span>
+                        </li>
+                        <li class="card-list-item">
+                          <ion-icon name="speedometer-outline"></ion-icon>
+                          <span class="card-item-text"><%= vehicle.milage %>km / litre</span>
+                        </li>
+                        <li class="card-list-item">
+                          <ion-icon name="hardware-chip-outline"></ion-icon>
+                          <span class="card-item-text"><%= vehicle.transmission_type %></span>
+                        </li>
+                      </ul>
+                      <div class="card-price-wrapper">
+                        <p class="card-price">
+                          <strong><%= vehicle.price_per_day %></strong> / day
+                        </p>  
+                      </div>
+                    </div>
+                  </div>
+                </li>
+            <% }); %>
+          <% }else{ %>
+            <div class="message-container-2">
+              <p>No vehicles are available at the moment.</p>
+            </div>
+          <% } %>
+        <% } %>
+      </ul>
+    </div>
+  </section>
+  <%-include("partials/footer.ejs")%>

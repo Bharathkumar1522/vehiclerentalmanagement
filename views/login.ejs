@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>VehicleRentalManagement</title>
+
+  
+    <!-- 
+      - favicon
+    -->
+    <link rel="shortcut icon" href="/images/logo_main_2.png" type="image/svg+xml">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="login-body">
     <header class="header" data-header>
         <div class="container">
             <div class="overlay" data-overlay></div>
-            <a href="#" class="logo ">
+            <a href="/" class="logo ">
                 <img src="/images/logo_main_2.png" alt="logo" class="logo-main">
             </a>
             <nav class="navbar" data-navbar>
                 <ul class="navbar-list">
-                    <li>
-                        <a href="/" class="navbar-link" data-nav-link>Home</a>
-                    </li>
                 </ul>
             </nav>
             <div class="header-actions">
@@ -41,7 +44,7 @@
                 <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
                 <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
                 <div class="login-form">
-                    <form action="/login" method="POST">
+                    <form action="/login/user" method="POST">
                         <div class="sign-in-htm">
                             <div class="group">
                                 <label class="label">Phone number</label>

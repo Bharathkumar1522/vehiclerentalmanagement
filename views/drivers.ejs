@@ -13,327 +13,59 @@
         </div>
       <% } %> 
       <ul class="featured-car-list">
-        <li>
-          <div class="featured-car-card">
-            <figure class="card-banner">
-              <img src="/images/driver_1.jpeg" alt="alex" loading="lazy" width="440" height="300"
-                class="w-100">
-            </figure>
-            <div class="card-content">
-              <div class="card-title-wrapper">
-                <h3 class="h3 card-title">
-                  <a href="#">Alex</a>
-                </h3>
-              </div>
-              <ul class="card-list">
-                <li class="card-list-item">
-                  <ion-icon name="person-outline"></ion-icon>
-                  <span class="card-item-text">27 age</span>
-                </li>
-                <li class="card-list-item">
-                  <ion-icon name="transgender-outline"></ion-icon>
-                  <span class="card-item-text">Male</span>
-                </li>
-                <li class="card-list-item">
-                  <ion-icon name="speedometer-outline"></ion-icon>
-                  <span class="card-item-text">4yrs experience</span>
-                </li>
-                <li class="card-list-item">
-                  <ion-icon name="car-outline"></ion-icon>
-                  <span class="card-item-text">All/Vehicles</span>
-                </li>
-              </ul>
-              <div class="card-price-wrapper">
-                <p class="card-price">
-                  <strong>450</strong> / hour
-                </p>
-              </div>
-            </div>
+        <% if(locals.errorMessage){ %>
+          <div class="message-container-2">
+            <p><%= errorMessage %></p>
           </div>
-        </li>
-
-        <li>
-          <div class="featured-car-card">
-
-            <figure class="card-banner">
-              <img src="/images/driver_2.jpeg" alt="alex" loading="lazy" width="440" height="300"
-                class="w-100">
-            </figure>
-
-            <div class="card-content">
-
-              <div class="card-title-wrapper">
-                <h3 class="h3 card-title">
-                  <a href="#">Ashok</a>
-                </h3>
+        <% }else{ %>
+            <% if(locals.drivers && drivers != -1){ %>
+              <% drivers.forEach((driver) => { %>
+                <li>
+                  <div class="featured-car-card">
+                    <figure class="card-banner">
+                      <img src="<%= driver.driver_image_path %>" alt="alex" loading="lazy" width="440" height="300"
+                        class="w-100">
+                    </figure>
+                    <div class="card-content">
+                      <div class="card-title-wrapper">
+                        <h3 class="h3 card-title">
+                          <a href="#"><%= driver.driver_name %></a>
+                        </h3>
+                        <data class="year">D<%= driver.driver_id %></data>
+                      </div>
+                      <ul class="card-list">
+                        <li class="card-list-item">
+                          <ion-icon name="person-outline"></ion-icon>
+                          <span class="card-item-text"><%= driver.age %> years old</span>
+                        </li>
+                        <li class="card-list-item">
+                          <ion-icon name="transgender-outline"></ion-icon>
+                          <span class="card-item-text"><%=  (driver.gender=='M')?"Male":"Female" %></span>
+                        </li>
+                        <li class="card-list-item">
+                          <ion-icon name="speedometer-outline"></ion-icon>
+                          <span class="card-item-text"><%= driver.experience %> yrs experience</span>
+                        </li>
+                        <li class="card-list-item">
+                          <ion-icon name="car-outline"></ion-icon>
+                          <span class="card-item-text"><%= driver.drivable_vehicles %></span>
+                        </li>
+                      </ul>
+                      <div class="card-price-wrapper">
+                        <p class="card-price">
+                          <strong>Rs.<%= driver.price_per_day %></strong> / day
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+              </li>
+              <% }); %>
+            <% }else{ %>
+              <div class="message-container-2">
+                <p>No drivers are available at the moment.</p>
               </div>
-
-              <ul class="card-list">
-
-                <li class="card-list-item">
-                  <ion-icon name="person-outline"></ion-icon>
-
-                  <span class="card-item-text">33 age</span>
-                </li>
-
-                <li class="card-list-item">
-                  <ion-icon name="transgender-outline"></ion-icon>
-
-                  <span class="card-item-text">Male</span>
-                </li>
-
-                <li class="card-list-item">
-                  <ion-icon name="speedometer-outline"></ion-icon>
-
-                  <span class="card-item-text">6yrs experience</span>
-                </li>
-
-                <li class="card-list-item">
-                  <ion-icon name="car-outline"></ion-icon>
-                  <span class="card-item-text">All/Vehicles</span>
-                </li>
-
-              </ul>
-
-              <div class="card-price-wrapper">
-
-                <p class="card-price">
-                  <strong>300</strong> / hour
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-        </li>
-
-        <li>
-          <div class="featured-car-card">
-
-            <figure class="card-banner">
-              <img src="/images/driver_3.jpeg" alt="alex" loading="lazy" width="440" height="300"
-                class="w-100">
-            </figure>
-
-            <div class="card-content">
-
-              <div class="card-title-wrapper">
-                <h3 class="h3 card-title">
-                  <a href="#">Smith</a>
-                </h3>
-              </div>
-
-              <ul class="card-list">
-
-                <li class="card-list-item">
-                  <ion-icon name="person-outline"></ion-icon>
-
-                  <span class="card-item-text">37 age</span>
-                </li>
-
-                <li class="card-list-item">
-                  <ion-icon name="transgender-outline"></ion-icon>
-
-                  <span class="card-item-text">Male</span>
-                </li>
-
-                <li class="card-list-item">
-                  <ion-icon name="speedometer-outline"></ion-icon>
-
-                  <span class="card-item-text">8yrs experience</span>
-                </li>
-
-                <li class="card-list-item">
-                  <ion-icon name="car-outline"></ion-icon>
-                  <span class="card-item-text">All/Vehicles</span>
-                </li>
-
-              </ul>
-
-              <div class="card-price-wrapper">
-
-                <p class="card-price">
-                  <strong>300</strong> / hour
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-        </li>
-
-        <li>
-          <div class="featured-car-card">
-
-            <figure class="card-banner">
-              <img src="/images/driver_4.jpeg" alt="alex" loading="lazy" width="440" height="300"
-                class="w-100">
-            </figure>
-
-            <div class="card-content">
-
-              <div class="card-title-wrapper">
-                <h3 class="h3 card-title">
-                  <a href="#">Chris</a>
-                </h3>
-              </div>
-
-              <ul class="card-list">
-
-                <li class="card-list-item">
-                  <ion-icon name="person-outline"></ion-icon>
-
-                  <span class="card-item-text">39 age</span>
-                </li>
-
-                <li class="card-list-item">
-                  <ion-icon name="transgender-outline"></ion-icon>
-
-                  <span class="card-item-text">Male</span>
-                </li>
-
-                <li class="card-list-item">
-                  <ion-icon name="speedometer-outline"></ion-icon>
-
-                  <span class="card-item-text">11yrs experience</span>
-                </li>
-
-                <li class="card-list-item">
-                  <ion-icon name="car-outline"></ion-icon>
-                  <span class="card-item-text">All/Vehicles</span>
-                </li>
-
-              </ul>
-
-              <div class="card-price-wrapper">
-
-                <p class="card-price">
-                  <strong>340</strong> / hour
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-        </li>
-
-        <li>
-          <div class="featured-car-card">
-
-            <figure class="card-banner">
-              <img src="/images/driver_5.jpeg" alt="alex" loading="lazy" width="440" height="300"
-                class="w-100">
-            </figure>
-
-            <div class="card-content">
-
-              <div class="card-title-wrapper">
-                <h3 class="h3 card-title">
-                  <a href="#">Shane</a>
-                </h3>
-              </div>
-
-              <ul class="card-list">
-
-                <li class="card-list-item">
-                  <ion-icon name="person-outline"></ion-icon>
-
-                  <span class="card-item-text">24 age</span>
-                </li>
-
-                <li class="card-list-item">
-                  <ion-icon name="transgender-outline"></ion-icon>
-
-                  <span class="card-item-text">Male</span>
-                </li>
-
-                <li class="card-list-item">
-                  <ion-icon name="speedometer-outline"></ion-icon>
-
-                  <span class="card-item-text">2yrs experience</span>
-                </li>
-
-                <li class="card-list-item">
-                  <ion-icon name="car-outline"></ion-icon>
-                  <span class="card-item-text">Bikes/only</span>
-                </li>
-
-              </ul>
-
-              <div class="card-price-wrapper">
-
-                <p class="card-price">
-                  <strong>100</strong> / hour
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-        </li>
-
-        <li>
-          <div class="featured-car-card">
-
-            <figure class="card-banner">
-              <img src="/images/driver_6.jpeg" alt="mary" loading="lazy" width="440" height="300"
-                class="w-100">
-            </figure>
-
-            <div class="card-content">
-
-              <div class="card-title-wrapper">
-                <h3 class="h3 card-title">
-                  <a href="#">Mary</a>
-                </h3>
-              </div>
-             
-              <ul class="card-list">
-
-                <li class="card-list-item">
-                  <ion-icon name="person-outline"></ion-icon>
-
-                  <span class="card-item-text">29 age</span>
-                </li>
-
-                <li class="card-list-item">
-                  <ion-icon name="transgender-outline"></ion-icon>
-
-                  <span class="card-item-text">Female</span>
-                </li>
-
-                <li class="card-list-item">
-                  <ion-icon name="speedometer-outline"></ion-icon>
-
-                  <span class="card-item-text">4yrs experience</span>
-                </li>
-               
-                <li class="card-list-item">
-                  <ion-icon name="car-outline"></ion-icon>
-                  <span class="card-item-text">Cars/only</span>
-                </li>
-
-              </ul>
-
-              <div class="card-price-wrapper">
-
-              
-                <p class="card-price">
-                  <strong>200</strong> / hour
-                </p>
-  
-                <!-- <button class="btn">Hire now</button> -->
-
-              </div>
-
-            </div>
-
-          </div>
-        </li>
+          <% } %>
+        <% } %>
       </ul>
 
     </div>

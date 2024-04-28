@@ -1,75 +1,282 @@
 <%-include("partials/header.ejs")%>
 
 <section class="section featured-car booking-card">
-    <div class="container">
+
+  <% if(locals.errorMessage){ %>
+    <div class="message-container-2">
+      <p><%= errorMessage %></p>
+    </div>
+  <% }else{ %>
+
+  <div class="container">
+    <button id="history-toggle" class="toggle-button btn">Drivers</button>
+  </div>
+  <div id="booking-history-container" class="container ">
+    <h1 class="medium-heading">Active Bookings</h1>
+    <% if(locals.activeBookings && activeBookings != -1){ %>
+      <% activeBookings.forEach((booking) => { %>
         <div class="featured-car-card bookings-tab" >
-            <div class="booking-image-container">
-                <img class="booking-image" src="/images/car-1.jpg">
-            </div>
-            <div class="booking-details-part">
-                <h3 class="vehicle-name">
-                  <a href="#">Toyota RAV4</a>
-                </h3>
-                <br>
-                <div class="booking-container">
-                  <ul class="booking-list">
-                    <li class="card-list-item booking-icons">
-                      <strong>Seating:</strong>
-                      <span class="card-item-text">4 People</span>
-                    </li>
-                    <li class="card-list-item">
-                      <strong>Fuel-type:</strong>
-                      <span class="card-item-text">Hybrid</span>
-                    </li>
-                  </ul>
-                  <ul class="booking-list ">
-                    <li class="card-list-item booking-icons">
-                      <strong>Milage:</strong>
-                      <span class="card-item-text">6.1km / 1-litre</span>
-                    </li>
-                    <li class="card-list-item">
-                      <strong>Transmition</strong>
-                      <span class="card-item-text">Automatic</span>
-                    </li>
-                  </ul>
-                </div> 
-            </div>
-            <div class="booking-details-part">
-              <h3 class="vehicle-name" style="visibility: hidden;">
-                <a href="#">Toyota RAV4</a>
-              </h3>
-              <br>
-              <div class="booking-container">
-                <ul class="booking-list">
-                  <li class="card-list-item booking-icons">
-                    <strong>Booked on:</strong>
-                    <span class="card-item-text"></span>
-                  </li>
-                  <li class="card-list-item booking-icons">
-                    <strong>Reserved date:</strong>
-                    <span class="card-item-text"></span>
-                  </li>
-                </ul>
-                <ul class="booking-list ">
-                  <li class="card-list-item booking-icons">
-                    <strong>Price:</strong>
-                    <span class="card-item-text"></span>
-                  </li>
-                </ul>
-              </div> 
+          <div class="booking-image-container">
+            <img class="booking-image" src="<%= booking.vehicle_image_path %>">
           </div>
-            <!-- <div class="booking-details-part">
-              <div class="booking-card-timings">
-                  <h4 class="timing-style">Booked on:</h4>
-                  <br>
-                  <h4 >Booked Date:</h4>
-                  <br>
-                  <h4 >Price:</h4>
-              </div> 
-          </div> -->
+          <div class="booking-details-part">
+            <h3 class="vehicle-name">
+              <a href=""><%= booking.vehicle_model %></a>
+            </h3>
+            <br>
+            <div class="booking-container">
+              <ul class="booking-list">
+                <li class="card-list-item booking-icons">
+                  <strong>Launched year:</strong>
+                  <span class="card-item-text"><%= booking.launched_year %></span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>Milage:</strong>
+                  <span class="card-item-text"><%= booking.milage %>km/litre</span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>Price per day:</strong>
+                  <span class="card-item-text">Rs. <%= booking.price_per_day %></span>
+                </li>
+              </ul>
+              <ul class="booking-list ">
+                <li class="card-list-item booking-icons">
+                  <strong>Customer Phone no. :</strong>
+                  <span class="card-item-text"><%= booking.user_phone_number %></span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>Total price:</strong>
+                  <span class="card-item-text">Rs.<%= booking.total_price %></span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>Booked on: </strong>
+                  <span class="card-item-text"><%= booking.booked_date %></span>
+                </li>
+              </ul>
+              <ul class="booking-list ">
+                <li class="card-list-item booking-icons">
+                  <strong>From date:</strong>
+                  <span class="card-item-text"><%= booking.from_date %></span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>To date:</strong>
+                  <span class="card-item-text"><%= booking.to_date %></span>
+                </li>
+              </ul>
+            </div> 
+          </div>
         </div>
+      <% }); %>
+    <% }else{ %>
+      <div class="message-container-2">
+        <p>No active bookings found.</p>
       </div>
+    <% } %>
+
+    <hr style="margin-top: 1.2rem;">
+    
+    <h1 class="medium-heading">Previous Bookings</h1>
+    
+    <% if(locals.previousBookings && previousBookings != -1){ %>
+      <% previousBookings.forEach((booking) => { %>
+        <div class="featured-car-card bookings-tab" >
+          <div class="booking-image-container">
+            <img class="booking-image" src="<%= booking.vehicle_image_path %>">
+          </div>
+          <div class="booking-details-part">
+            <h3 class="vehicle-name">
+              <a href=""><%= booking.vehicle_model %></a>
+            </h3>
+            <br>
+            <div class="booking-container">
+              <ul class="booking-list">
+                <li class="card-list-item booking-icons">
+                  <strong>Launched year:</strong>
+                  <span class="card-item-text"><%= booking.launched_year %></span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>Milage:</strong>
+                  <span class="card-item-text"><%= booking.milage %>km/litre</span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>Price per day:</strong>
+                  <span class="card-item-text">Rs. <%= booking.price_per_day %></span>
+                </li>
+              </ul>
+              <ul class="booking-list ">
+                <li class="card-list-item booking-icons">
+                  <strong>Customer Phone no. :</strong>
+                  <span class="card-item-text"><%= booking.user_phone_number %></span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>Total price:</strong>
+                  <span class="card-item-text">Rs.<%= booking.total_price %></span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>Booked on: </strong>
+                  <span class="card-item-text"><%= booking.booked_date %></span>
+                </li>
+              </ul>
+              <ul class="booking-list ">
+                <li class="card-list-item booking-icons">
+                  <strong>From date:</strong>
+                  <span class="card-item-text"><%= booking.from_date %></span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>To date:</strong>
+                  <span class="card-item-text"><%= booking.to_date %></span>
+                </li>
+              </ul>
+            </div> 
+          </div>
+        </div>
+      <% }); %>
+    <% }else{ %>
+      <div class="message-container-2">
+        <p>No previous bookings found.</p>
+      </div>
+    <% } %>
+  </div>
+  <div id="hiring-history-container" class="container d-none">
+    <h1 class="medium-heading">Active Hirings</h1>
+    <% if(locals.activeHirings && activeHirings != -1){ %>
+      <% activeHirings.forEach((hiring) => { %>
+        <div class="featured-car-card bookings-tab" >
+          <div class="booking-image-container">
+            <img class="booking-image" src="<%= hiring.driver_image_path %>">
+          </div>
+          <div class="booking-details-part">
+            <h3 class="vehicle-name">
+              <a href=""><%= hiring.driver_name %></a>
+            </h3>
+            <br>
+            <div class="booking-container">
+              <ul class="booking-list">
+                <li class="card-list-item booking-icons">
+                  <strong>Driver ID: </strong>
+                  <span class="card-item-text">D<%= hiring.driver_id %></span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>Booked on: </strong>
+                  <span class="card-item-text"><%= hiring.hired_date %></span>
+                </li>
+              </ul>
+              <ul class="booking-list ">
+                <li class="card-list-item booking-icons">
+                  <strong>Customer Phone no. :</strong>
+                  <span class="card-item-text"><%= hiring.user_phone_number %></span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>Total price:</strong>
+                  <span class="card-item-text">Rs.<%= hiring.total_price %></span>
+                </li>
+              </ul>
+              <ul class="booking-list ">
+                <li class="card-list-item booking-icons">
+                  <strong>From date:</strong>
+                  <span class="card-item-text"><%= hiring.from_date %></span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>To date:</strong>
+                  <span class="card-item-text"><%= hiring.to_date %></span>
+                </li>
+              </ul>
+            </div> 
+          </div>
+        </div>
+      <% }); %>
+    <% }else{ %>
+      <div class="message-container-2">
+        <p>No active hirings found.</p>
+      </div>
+    <% } %>
+
+    <hr style="margin-top: 1.2rem;">
+    
+    <h1 class="medium-heading">Previous Hirings</h1>
+    
+    <% if(locals.previousHirings && previousHirings != -1){ %>
+      <% previousHirings.forEach((booking) => { %>
+        <div class="featured-car-card bookings-tab" >
+          <div class="booking-image-container">
+            <img class="booking-image" src="<%= hiring.driver_image_path %>">
+          </div>
+          <div class="booking-details-part">
+            <h3 class="vehicle-name">
+              <a href=""><%= hiring.driver_name %></a>
+            </h3>
+            <br>
+            <div class="booking-container">
+              <ul class="booking-list">
+                <li class="card-list-item booking-icons">
+                  <strong>Driver ID: </strong>
+                  <span class="card-item-text">D<%= hiring.driver_id %></span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>Gender:</strong>
+                  <span class="card-item-text"><%=  (hiring.gender=='M')?"Male":"Female" %></span>
+                </li>
+              </ul>
+              <ul class="booking-list ">
+                <li class="card-list-item booking-icons">
+                  <strong>Experience:</strong>
+                  <span class="card-item-text"><%= hiring.experience %> years</span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>Age:</strong>
+                  <span class="card-item-text"><%= hiring.age %> years</span>
+                </li>
+              </ul>
+              <ul class="booking-list ">
+                <li class="card-list-item booking-icons">
+                  <strong>Booked on: </strong>
+                  <span class="card-item-text"><%= hiring.hired_date %></span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>Total price:</strong>
+                  <span class="card-item-text">Rs.<%= hiring.total_price %></span>
+                </li>
+              </ul>
+              <ul class="booking-list ">
+                <li class="card-list-item booking-icons">
+                  <strong>From date:</strong>
+                  <span class="card-item-text"><%= hiring.from_date %></span>
+                </li>
+                <li class="card-list-item booking-icons">
+                  <strong>To date:</strong>
+                  <span class="card-item-text"><%= hiring.to_date %></span>
+                </li>
+              </ul>
+            </div> 
+          </div>
+        </div>
+      <% }); %>
+    <% }else{ %>
+      <div class="message-container-2">
+        <p>No previous hirings found.</p>
+      </div>
+    <% } %>
+  </div>
+    
+  <% } %>
+
 </section>
+<script>
+  const historyToggleButton = document.getElementById("history-toggle");
+  const bookingContainer = document.getElementById("booking-history-container");
+  const hiringContainer = document.getElementById("hiring-history-container");
+  historyToggleButton.addEventListener("click", function() {
+  if(historyToggleButton.innerHTML === "Drivers"){
+    historyToggleButton.innerHTML = "Vehicles";
+    bookingContainer.classList.add("d-none");
+    hiringContainer.classList.remove("d-none");
+  }else{
+    historyToggleButton.innerHTML = "Drivers";
+    hiringContainer.classList.add("d-none");
+    bookingContainer.classList.remove("d-none");
+  }
+  });
+</script>
 
 
 
