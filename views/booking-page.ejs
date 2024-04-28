@@ -8,7 +8,7 @@
             <form action="/bookvehicle" method="POST" class="grid-cols-1 grid md:grid-cols-3">
               <div>
                 <label for="vehicle" class="form-label">Select Your Vehicle</label>
-                <select id="vehicle" class="form-input" name="selected_driver">
+                <select id="vehicle" class="form-input" name="selected_vehicle">
                   <% vehicles.forEach((vehicle) => { %>
                     <option style="color: black;" value="<%= vehicle.vehicle_id %>$<%= vehicle.price_per_day %>"><%= vehicle.vehicle_model %> (per day: <%= vehicle.price_per_day %>)</option>
                   <% }); %>
